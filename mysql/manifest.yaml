@@ -26,7 +26,6 @@ spec:
       - name: mysql
         image: pradeepgorle/mysql:1.0.0
 
-
 # Explanation of Core Sections:
 # - apiVersion: Specifies the Kubernetes API version.
 # - kind: Defines the resource type (Deployment).
@@ -34,3 +33,20 @@ spec:
 # - spec: Defines deployment details like replicas and selectors.
 # - template: Describes the structure of pods to be created.
 # - containers: Lists containers, specifying the image and ports.
+
+---
+apiVersion: V1
+kind: Service # Default-Cluster IP which is enough as backend communicates internally with mysql service which sends traffic to pods
+metadata:
+  name: mysql
+  namespace: expense
+spec:
+  selector:
+    app: mysql
+    tier: mysql
+    project: expense
+  ports:
+  - protocol: TCP
+    port: 3306 # Service port, in this case the port for cluster IP
+    targetPort: 3306
+
