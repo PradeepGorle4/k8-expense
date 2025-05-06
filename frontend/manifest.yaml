@@ -40,6 +40,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80 # Service port
-    targetPort: 80
+    targetPort: 8080 # We are giving port out of system ports 0-1024 as we are running this manifest file as non-root user. 
+    # It won't have access to take system ports
     
   
