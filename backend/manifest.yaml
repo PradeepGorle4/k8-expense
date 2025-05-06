@@ -13,7 +13,7 @@ spec:
     matchLabels:
       app: backend
       tier: backend
-      project: backend
+      project: expense
   template:
     metadata:
       labels:
