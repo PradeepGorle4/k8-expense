@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: expense
+  labels:
+    app: backend
+    tier: backend
+    project: expense
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+      tier: backend
+      project: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+        tier: backend
+        project: expense
+    spec:
+      containers:
+      - name: backend
+        image: pradeepgorle/backend:1.0.0
+
+---
+apiVersion: v1
+kind: service
+metadata:
+  name: backend
+  namespace: expense
+spec:
+  selector:
+    app: backend
+    tier: backend
+    project: expense
+  ports:
+  - protocol: TCP
+    port: 8080 # Service port
+    targetPort: 8080
+    
+  
