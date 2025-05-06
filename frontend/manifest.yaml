@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: pradeepgorle/frontend:1.0.0
+        image: pradeepgorle/frontend:1.2.0
 
 ---
 apiVersion: v1
