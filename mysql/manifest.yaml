@@ -35,7 +35,7 @@ spec:
 # - containers: Lists containers, specifying the image and ports.
 
 ---
-apiVersion: V1
+apiVersion: v1
 kind: Service # Default-Cluster IP which is enough as backend communicates internally with mysql service which sends traffic to pods
 metadata:
   name: mysql
