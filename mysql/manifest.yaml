@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: expense
+# These are labels of deployment resource
+  labels:
+    app: mysql
+    tier: mysql
+    project: expense
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+      tier: mysql
+      project: expense
+  template:
+    metadata:
+      labels:
+        app: mysql
+        tier: mysql
+        project: expense
+    spec:
+      containers:
+      - name: mysql
+        image: pradeepgorle/mysql:1.0.0
+
+
+# Explanation of Core Sections:
+# - apiVersion: Specifies the Kubernetes API version.
+# - kind: Defines the resource type (Deployment).
+# - metadata: Provides identifying details like name, namespace, and labels.
+# - spec: Defines deployment details like replicas and selectors.
+# - template: Describes the structure of pods to be created.
+# - containers: Lists containers, specifying the image and ports.
